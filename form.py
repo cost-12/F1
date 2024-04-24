@@ -3,22 +3,12 @@ import dados
 
 st.title("Fórmula 1")
 
-def insere_dados(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade):
-    conexao = conecta_bd()
-    cursor = conexao.cursor()
-    cursor.execute(
-        '''
-        INSERT INTO F1(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade)
-        VALUES (?, ?, ?, ?, ?)
-        ''',(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade)
-    )
-    conexao.commit()
-    conexao.close()
+Equipe = st.text_input('Nome da equipe:')
+Chassi = st.slider('Chassi', min_value=0.0, max_value=10.0)
+Aerodinâmica = st.slider('Aerodinâmica', min_value=0.0, max_value=10.0)
+Motor = st.slider('Motor', min_value=0.0, max_value=10.0)
+Durabilidade = st.slider('Durabilidade', min_value=0.0, max_value=10.0)
 
-# Função para inserir dados de exemplo (opcional)
-def inserir_dados_exemplo():
-    insere_dados('Audi F1 TEAM', '9.0', '7.0', '10', '9.0')
-
-# Executar a inserção de dados de exemplo apenas se o arquivo for executado diretamente
-if __name__ == "__main__":
-    inserir_dados_exemplo()
+if st.button('Adicionar'):
+    dados.insere_dados(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade)
+    st.success("Sucesso")

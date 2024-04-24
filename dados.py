@@ -17,5 +17,3 @@ def insere_dados(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade):
     )
     conexao.commit()
     conexao.close()
-
-insere_dados('Audi F1 TEAM', '9.0', '7.0', '10', '9.0')

@@ -4,7 +4,7 @@ conexao = sqlite3.connect('F1.db')
 cursor = conexao.cursor()
 
 # 2-Exclusão
-Equipe = ('Ferrari',)
+Equipe = ('',)
 cursor.execute(
     """
     DELETE FROM F1
