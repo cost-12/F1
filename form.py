@@ -1,14 +1,24 @@
 import streamlit as st
 import dados
 
-st.title("F1")
+st.title("Fórmula 1")
 
-Equipe = st.text_input('Equipe')
-Chassi = st.number_input()
-Aerodinâmica = st.number_input()
-Motor = st.number_input()
-Durabilidade = st.number_input()
+def insere_dados(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade):
+    conexao = conecta_bd()
+    cursor = conexao.cursor()
+    cursor.execute(
+        '''
+        INSERT INTO F1(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade)
+        VALUES (?, ?, ?, ?, ?)
+        ''',(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade)
+    )
+    conexao.commit()
+    conexao.close()
 
-if st.button('Adcionar'):
-    dados.insere_dados(Equipe, Chassi, Aerodinâmica, Motor, Durabilidade)
-    
+# Função para inserir dados de exemplo (opcional)
+def inserir_dados_exemplo():
+    insere_dados('Audi F1 TEAM', '9.0', '7.0', '10', '9.0')
+
+# Executar a inserção de dados de exemplo apenas se o arquivo for executado diretamente
+if __name__ == "__main__":
+    inserir_dados_exemplo()
