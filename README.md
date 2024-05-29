@@ -1,5 +1,5 @@
 # Projeto de Fórmula 1
-![image](https://github.com/cost-12/F1/assets/124941175/596dfa44-f867-40ef-a3c9-bbe5bc7f2829)
+![image](https://github.com/cost-12/F1/assets/124941175/a03db4fd-fb61-49b0-9c69-54bed08c1791)
 
 Este é um projeto relacionado à Fórmula 1, onde exploramos dados, estatísticas e informações sobre as equipes.
 
